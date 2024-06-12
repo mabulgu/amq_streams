@@ -1,5 +1,5 @@
 ---
-- name: "Wait for Connect to be available."
+- name: Wait for Connect to be available.
   ansible.builtin.wait_for:
     timeout: 60
     delay: 10
@@ -17,9 +17,9 @@
       - ansible_facts.services["{{ amq_streams_connect_service_name }}.service"]['state'] == 'running'
       - ansible_facts.services["{{ amq_streams_connect_service_name }}.service"]['status'] == 'enabled'
     quiet: true
-    fail_msg: "Service is not started."
+    fail_msg: Service is not started.
 
-- name: "Ensure required parameter(s) are provided."
+- name: Ensure required parameter(s) are provided.
   ansible.builtin.include_role:
     name: amq_streams_common
     tasks_from: validate.yml

@@ -1,5 +1,5 @@
 ---
-- name: "Ensure required parameter(s) are provided."
+- name: Ensure required parameter(s) are provided.
   ansible.builtin.assert:
     that:
       - service_name is defined and service_name | length > 0
@@ -18,4 +18,4 @@
       - ansible_facts.services["{{ service_name }}.service"]['state'] == 'running'
       - ansible_facts.services["{{ service_name }}.service"]['status'] == 'enabled'
     quiet: true
-    fail_msg: "Service is not started."
+    fail_msg: Service is not started.

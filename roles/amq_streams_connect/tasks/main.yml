@@ -1,14 +1,14 @@
 ---
-- name: "Ensure required parameter(s) are defined."
+- name: Ensure required parameter(s) are defined.
   ansible.builtin.assert:
     that:
       - amq_streams_common_home is defined
     quiet: true
 
-- name: "Ensure prerequisite are fullfilled."
+- name: Ensure prerequisite are fullfilled.
   ansible.builtin.include_tasks: prereqs.yml
 
-- name: "Ensure OS has been properly tuned (RHEL specific)."
+- name: Ensure OS has been properly tuned (RHEL specific).
   ansible.builtin.include_role:
     name: amq_streams_common
     tasks_from: os_tuning.yml
@@ -19,7 +19,7 @@
   when:
     - ansible_distribution == "RedHat"
 
-- name: "Ensure connectors for AMQ Connect are deployed."
+- name: Ensure connectors for AMQ Connect are deployed.
   ansible.builtin.include_tasks: "{{ connector.path }}"
   loop: "{{ connectors }}"
   loop_control:
@@ -27,5 +27,5 @@
   when:
     - connectors is defined and connectors | length > 0
 
-- name: "Deploy Kafka Connect as a systemd service."
+- name: Deploy Kafka Connect as a systemd service.
   ansible.builtin.include_tasks: service.yml
