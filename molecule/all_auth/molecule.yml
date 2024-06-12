@@ -6,10 +6,10 @@ platforms:
     image: registry.access.redhat.com/ubi8/ubi-init:latest
     pre_build_image: true
     privileged: true
-    command: "/usr/sbin/init"
+    command: /usr/sbin/init
     groups:
-     - zookeepers
-     - brokers
+      - zookeepers
+      - brokers
 provisioner:
   name: ansible
   config_options:

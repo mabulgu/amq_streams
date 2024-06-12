@@ -2,8 +2,7 @@
 - name: Prepare
   hosts: all
   tasks:
-
-    - name: "Ensure required packages are installed."
+    - name: Ensure required packages are installed.
       ansible.builtin.yum:
         name:
           - sudo

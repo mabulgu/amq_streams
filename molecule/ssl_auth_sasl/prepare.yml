@@ -1,12 +1,11 @@
 ---
 - name: Prepare
   hosts: all
-#  collections:
-#    - community.general.java_keystore
-#    - community.crypto
+  #  collections:
+  #    - community.general.java_keystore
+  #    - community.crypto
   tasks:
-
-    - name: "Ensure required packages are installed."
+    - name: Ensure required packages are installed.
       ansible.builtin.yum:
         name:
           - sudo
@@ -19,10 +18,10 @@
         dest: /tmp/
         owner: root
         group: root
-        mode: 0077
+        mode: "077"
 
-    - name: "Generate required SSL artifacts."
-      ansible.builtin.command: "/tmp/generate_keys_and_certs.sh"
+    - name: Generate required SSL artifacts.
+      ansible.builtin.command: /tmp/generate_keys_and_certs.sh
       register: output
 
     - ansible.builtin.debug:

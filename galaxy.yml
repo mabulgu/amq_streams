@@ -8,7 +8,7 @@ authors:
   - Guido Grazioli <ggraziol@redhat.com>
   - Roman Martin <rmarting@redhat.com>
 description: Install and configure Red Hat AMQ Streams (kafka) deployments
-license_file: "LICENSE"
+license_file: LICENSE
 tags:
   - java
   - server
@@ -19,7 +19,7 @@ tags:
   - middleware
   - a4mw
 dependencies:
-  ansible.posix: '>=1.4.0'
+  ansible.posix: ">=1.4.0"
 repository: https://github.com/ansible-middleware/amq_streams
 documentation: https://ansible-middleware.github.io/amq_streams
 homepage: https://github.com/ansible-middleware/amq_streams
@@ -29,8 +29,8 @@ build_ignore:
   - .github
   - .ansible-lint
   - .yamllint
-  - '*.tar.gz'
-  - '*.zip'
+  - "*.tar.gz"
+  - "*.zip"
   - molecule
   - changelogs
   - docs/_gh_include
